@@ -5,5 +5,4 @@
     tools:context="com.example.wuyouhelper.MainActivity"
     android:background="@drawable/main_background2" >
 
-
 </RelativeLayout>
