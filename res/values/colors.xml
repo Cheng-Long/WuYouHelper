@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主色 -->
+    <color name="main">#448aff</color> 
+    <!-- 白色 --> 
+    <color name="white">#ffffff</color> 
+    <!-- 黑色 -->
+    <color name="black">#000000</color> 
+</resources>

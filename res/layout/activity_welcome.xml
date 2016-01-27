@@ -2,7 +2,5 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.wuyouhelper.MainActivity"
-    android:background="@drawable/main_background2" >
-
-</RelativeLayout>
+    android:background="@drawable/main_background2"
+    tools:context="com.example.wuyouhelper.activity.WelcomeActivity" />
