@@ -9,7 +9,7 @@
         android:layout_height="50dp"
         android:background="@color/main"
         android:gravity="center"
-        android:text="功能列表"
+        android:text="@string/home_title"
         android:textColor="@color/black"
         android:textSize="22sp" />
 
@@ -22,7 +22,7 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:singleLine="true"
-        android:text="兄弟为手足，女人为衣服。谁动我手足，我扒谁衣服。- 无忧"
+        android:text="@string/home_marquee"
         android:textColor="@color/black"
         android:textSize="18sp" />
 
