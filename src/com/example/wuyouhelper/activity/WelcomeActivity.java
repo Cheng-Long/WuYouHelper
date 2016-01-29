@@ -19,6 +19,10 @@ import android.os.Bundle;
  * @date: 2016-1-28-下午3:13:44
  */
 public class WelcomeActivity extends Activity {
+	/**
+	 * 等待时间,1s
+	 */
+	public static long WAIT_TIME = 1 * 1000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +35,14 @@ public class WelcomeActivity extends Activity {
 
 	/**
 	 * 获取版本信息
+	 * 
 	 * @author: cl
 	 * @date: 2016-1-28-下午4:08:17
 	 */
 	private void getVersion() {
 		try {
-			PackageInfo packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+			PackageInfo packageInfo = getPackageManager().getPackageInfo(
+					getPackageName(), 0);
 			Constants.VERSION_NAME = packageInfo.versionName;
 			Constants.VERSION_CODE = packageInfo.versionCode;
 		} catch (NameNotFoundException e) {
@@ -61,7 +67,7 @@ public class WelcomeActivity extends Activity {
 				startActivity(intent);
 				finish();
 			}
-		}, Constants.WAIT_TIME);
+		}, WelcomeActivity.WAIT_TIME);
 	}
 
 }
