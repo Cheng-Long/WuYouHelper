@@ -5,7 +5,6 @@ import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.ProgressDialog;
@@ -40,7 +39,7 @@ public class Utils {
 
 	private static String downloadUrl;
 
-	public static String URL_JSON = "http://192.168.1.116/Android/update.json";
+	public static String URL_JSON = "http://10.0.2.2/long/update.json";
 
 	private static ProgressDialog mypDialog;
 

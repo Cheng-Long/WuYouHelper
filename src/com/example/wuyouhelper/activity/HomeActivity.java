@@ -19,7 +19,7 @@ import com.example.wuyouhelper.general.Utils;
  * @date: 2016-1-28-下午3:14:01
  */
 public class HomeActivity extends Activity {
-	
+
 	/**
 	 * 主页菜单图片ID
 	 */
@@ -27,7 +27,7 @@ public class HomeActivity extends Activity {
 			R.drawable.home_callmsgsafe, R.drawable.home_apps,
 			R.drawable.home_taskmanager, R.drawable.home_netmanager,
 			R.drawable.home_trojan, R.drawable.home_sysoptimize,
-			R.drawable.home_tools, R.drawable.home_settings };
+			R.drawable.home_tools };
 
 	/**
 	 * 主页菜单说明ID
@@ -36,7 +36,7 @@ public class HomeActivity extends Activity {
 			R.string.home_callmsgsafe, R.string.home_apps,
 			R.string.home_taskmanager, R.string.home_netmanager,
 			R.string.home_trojan, R.string.home_sysoptimize,
-			R.string.home_tools, R.string.home_settings };
+			R.string.home_tools };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +72,8 @@ public class HomeActivity extends Activity {
 				} else {
 					viewHolder = (ViewHolder) convertView.getTag();
 				}
-				viewHolder.iv.setImageResource(HomeActivity.IV_HOME_ITEM[position]);
+				viewHolder.iv
+						.setImageResource(HomeActivity.IV_HOME_ITEM[position]);
 				viewHolder.tv.setText(HomeActivity.TV_HOME_ITEM[position]);
 				return convertView;
 			}
