@@ -13,14 +13,14 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 
 /**
- * »¶Ó­Ò³
+ * æ¬¢è¿é¡µ
  * 
  * @author: cl
- * @date: 2016-1-28-ÏÂÎç3:13:44
+ * @date: 2016-1-28-ä¸‹åˆ3:13:44
  */
 public class WelcomeActivity extends Activity {
 	/**
-	 * µÈ´ıÊ±¼ä,1s
+	 * ç­‰å¾…æ—¶é—´,1s
 	 */
 	public static long WAIT_TIME = 1 * 1000;
 
@@ -34,10 +34,10 @@ public class WelcomeActivity extends Activity {
 	}
 
 	/**
-	 * »ñÈ¡°æ±¾ĞÅÏ¢
+	 * è·å–ç‰ˆæœ¬ä¿¡æ¯
 	 * 
 	 * @author: cl
-	 * @date: 2016-1-28-ÏÂÎç4:08:17
+	 * @date: 2016-1-28-ä¸‹åˆ4:08:17
 	 */
 	private void getVersion() {
 		try {
@@ -52,10 +52,10 @@ public class WelcomeActivity extends Activity {
 	}
 
 	/**
-	 * ¿ªÊ¼¼ÆÊ±Æ÷,µÈ´ıÒ»¶ÎÊ±¼äÔÙÌø×ª
+	 * å¼€å§‹è®¡æ—¶å™¨,ç­‰å¾…ä¸€æ®µæ—¶é—´å†è·³è½¬
 	 * 
 	 * @author: cl
-	 * @date: 2016-1-27-ÏÂÎç6:38:32
+	 * @date: 2016-1-27-ä¸‹åˆ6:38:32
 	 */
 	private void startTimer() {
 		new Timer().schedule(new TimerTask() {

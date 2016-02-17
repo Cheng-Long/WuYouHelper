@@ -24,10 +24,10 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
 /**
- * ¹¤¾ßÀà
+ * å·¥å…·ç±»
  * 
  * @author: cl
- * @date: 2016-1-28-ÏÂÎç3:39:17
+ * @date: 2016-1-28-ä¸‹åˆ3:39:17
  */
 public class Utils {
 
@@ -44,16 +44,16 @@ public class Utils {
 	private static ProgressDialog mypDialog;
 
 	/**
-	 * ¼ì²é¸üĞÂ
+	 * æ£€æŸ¥æ›´æ–°
 	 * 
 	 * @author: cl
-	 * @date: 2016-1-28-ÏÂÎç3:46:07
+	 * @date: 2016-1-28-ä¸‹åˆ3:46:07
 	 */
 	public static void checkForUpdate(Context context) {
 		Utils.context = context;
-		// Á¬½Ó·şÎñÆ÷»ñÈ¡json
-		// ÇëÇó½á¹û»á½øÈë»º´æ,³ÖĞøÊ±¼ä´ó¸Å30s,1minÄÚ
-		// »º´æ´æÔÚÆÚ¼ä,ÇëÇó¸ÃÁ´½Ó»áÖ±½Óµ÷ÓÃ»Øµ÷º¯ÊıRequestCallBack,Ê¹ÓÃ»º´æÖĞµÄ·µ»Ø½á¹û
+		// è¿æ¥æœåŠ¡å™¨è·å–json
+		// è¯·æ±‚ç»“æœä¼šè¿›å…¥ç¼“å­˜,æŒç»­æ—¶é—´å¤§æ¦‚30s,1minå†…
+		// ç¼“å­˜å­˜åœ¨æœŸé—´,è¯·æ±‚è¯¥é“¾æ¥ä¼šç›´æ¥è°ƒç”¨å›è°ƒå‡½æ•°RequestCallBack,ä½¿ç”¨ç¼“å­˜ä¸­çš„è¿”å›ç»“æœ
 		HttpUtils http = new HttpUtils();
 		http.send(HttpMethod.GET, Utils.URL_JSON,
 				new RequestCallBack<String>() {
@@ -62,7 +62,7 @@ public class Utils {
 					public void onFailure(HttpException httpexception, String s) {
 						Toast.makeText(
 								Utils.context,
-								"ÎŞ·¨Á¬½Óµ½·şÎñÆ÷(" + httpexception.getExceptionCode()
+								"æ— æ³•è¿æ¥åˆ°æœåŠ¡å™¨(" + httpexception.getExceptionCode()
 										+ ")", Toast.LENGTH_SHORT).show();
 					}
 
@@ -75,31 +75,31 @@ public class Utils {
 	}
 
 	/**
-	 * ½âÎöjsonÊı¾İ,ÅĞ¶ÏÊÇ·ñÌáÊ¾¸üĞÂ
+	 * è§£æjsonæ•°æ®,åˆ¤æ–­æ˜¯å¦æç¤ºæ›´æ–°
 	 * 
 	 * @author: cl
-	 * @date: 2016-1-29-ÏÂÎç12:01:39
+	 * @date: 2016-1-29-ä¸‹åˆ12:01:39
 	 */
 	private static void alertUpdate(String result) {
 		try {
-			// ½âÎöjson
+			// è§£æjson
 			JSONObject object = new JSONObject(result);
 			newVersionCode = object.getInt("versionCode");
 			description = object.getString("description");
 			downloadUrl = object.getString("downloadUrl");
 		} catch (JSONException e) {
-			Toast.makeText(Utils.context, "¸üĞÂÊı¾İ½âÎöÊ§°Ü", Toast.LENGTH_SHORT)
+			Toast.makeText(Utils.context, "æ›´æ–°æ•°æ®è§£æå¤±è´¥", Toast.LENGTH_SHORT)
 					.show();
 			e.printStackTrace();
 		}
 
-		if (newVersionCode > Constants.VERSION_CODE) {
-			// ÌáÊ¾ÊÇ·ñ¸üĞÂ
+		if (newVersionCode > Constants.VERSION_CODE) {//æœ‰æ–°ç‰ˆæœ¬
+			// æç¤ºæ˜¯å¦æ›´æ–°
 			Builder builder = new Builder(Utils.context);
 			builder.setIcon(R.drawable.ic_launcher)
 					.setTitle(R.string.alert_title).setMessage(description);
-			builder.setNegativeButton("ÏÂ´ÎÔÙËµ", null);
-			builder.setPositiveButton("ÂíÉÏÌåÑé", new OnClickListener() {
+			builder.setNegativeButton("ä¸‹æ¬¡å†è¯´", null);
+			builder.setPositiveButton("é©¬ä¸Šä½“éªŒ", new OnClickListener() {
 
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
@@ -110,39 +110,40 @@ public class Utils {
 			alertDialog.getWindow().setLayout(
 					alertDialog.getWindow().getAttributes().width, 400);
 
+		}else{//å½“å‰å·²æ˜¯æœ€æ–°ç‰ˆæœ¬
+			
 		}
 	}
 
 	/**
-	 * µ¯³öÏÂÔØ½ø¶È´°¿ÚÏÂÔØ
+	 * å¼¹å‡ºä¸‹è½½è¿›åº¦çª—å£ä¸‹è½½
 	 * 
 	 * @author: cl
-	 * @date: 2016-1-29-ÏÂÎç3:10:35
+	 * @date: 2016-1-29-ä¸‹åˆ3:10:35
 	 */
 	private static void alertDownload() {
 		if (Environment.getExternalStorageState().equals(
 				Environment.MEDIA_MOUNTED)) {
 			mypDialog = new ProgressDialog(Utils.context);
-			// ÉèÖÃ½ø¶ÈÌõ·ç¸ñ£¬·ç¸ñÎª³¤ĞÎ£¬ÓĞ¿Ì¶ÈµÄ
+			// è®¾ç½®è¿›åº¦æ¡é£æ ¼ï¼Œé£æ ¼ä¸ºé•¿å½¢ï¼Œæœ‰åˆ»åº¦çš„
 			mypDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-			// ÉèÖÃProgressDialog ±êÌâÍ¼±ê
+			// è®¾ç½®ProgressDialog æ ‡é¢˜å›¾æ ‡
 			mypDialog.setIcon(R.drawable.ic_launcher);
-			// ÉèÖÃProgressDialog ±êÌâ
+			// è®¾ç½®ProgressDialog æ ‡é¢˜
 			mypDialog.setTitle(R.string.alert_title);
-			// ÉèÖÃProgressDialog ÌáÊ¾ĞÅÏ¢
-			mypDialog.setMessage("°²×°°üÏÂÔØÖĞ...");
-			// ÉèÖÃProgressDialog µÄ½ø¶ÈÌõÊÇ·ñ²»Ã÷È·
+			// è®¾ç½®ProgressDialog æç¤ºä¿¡æ¯
+			mypDialog.setMessage("å®‰è£…åŒ…ä¸‹è½½ä¸­...");
+			// è®¾ç½®ProgressDialog çš„è¿›åº¦æ¡æ˜¯å¦ä¸æ˜ç¡®
 			mypDialog.setIndeterminate(false);
-			// ÉèÖÃProgressDialog ÊÇ·ñ¿ÉÒÔ°´ÍË»Ø°´¼üÈ¡Ïû
+			// è®¾ç½®ProgressDialog æ˜¯å¦å¯ä»¥æŒ‰é€€å›æŒ‰é”®å–æ¶ˆ
 			mypDialog.setCancelable(true);
-			// ÈÃProgressDialogÏÔÊ¾
+			// è®©ProgressDialogæ˜¾ç¤º
 			mypDialog.show();
 
-			// ¿ªÊ¼ÏÂÔØ
+			// å¼€å§‹ä¸‹è½½
 			final String filePath = Environment.getExternalStorageDirectory()
 					+ "/"
-					+ downloadUrl.substring(downloadUrl.lastIndexOf("/") + 1,
-							downloadUrl.length());
+					+ downloadUrl.substring(downloadUrl.lastIndexOf("/") + 1);
 			HttpUtils http = new HttpUtils();
 			http.download(downloadUrl, filePath, true, true,
 					new RequestCallBack<File>() {
@@ -152,14 +153,14 @@ public class Utils {
 								boolean isUploading) {
 							super.onLoading(total, current, isUploading);
 
-							// ÉèÖÃProgressDialog ½ø¶ÈÌõ½ø¶È
+							// è®¾ç½®ProgressDialog è¿›åº¦æ¡è¿›åº¦
 							mypDialog.setProgress((int) current);
 							mypDialog.setMax((int) total);
 						}
 
 						@Override
 						public void onSuccess(ResponseInfo<File> arg0) {
-							Toast.makeText(Utils.context, "ÏÂÔØÍê³É",
+							Toast.makeText(Utils.context, "ä¸‹è½½å®Œæˆ",
 									Toast.LENGTH_SHORT).show();
 							mypDialog.dismiss();
 							installApp(arg0.result);
@@ -167,47 +168,47 @@ public class Utils {
 
 						@Override
 						public void onFailure(HttpException arg0, String arg1) {
-							// ÎÄ¼şÒÑÏÂÔØÍê³ÉµÄÇé¿ö
+							// æ–‡ä»¶å·²ä¸‹è½½å®Œæˆçš„æƒ…å†µ
 							if (arg1.equalsIgnoreCase("maybe the file has downloaded completely")) {
 								mypDialog.setProgress(1);
 								mypDialog.setMax(1);
-								Toast.makeText(Utils.context, "°²×°°üÒÑ´æÔÚ",
+								Toast.makeText(Utils.context, "å®‰è£…åŒ…å·²å­˜åœ¨",
 										Toast.LENGTH_SHORT).show();
 								mypDialog.dismiss();
 								installApp(new File(filePath));
 							} else {
-								// ÆäËûÏÂÔØ³ö´íµÄÇé¿ö
+								// å…¶ä»–ä¸‹è½½å‡ºé”™çš„æƒ…å†µ
 								mypDialog.setMessage(arg1);
 							}
 						}
 					});
 		} else {
-			Toast.makeText(Utils.context, "Ã»ÓĞÕÒµ½SD¿¨", Toast.LENGTH_SHORT).show();
+			Toast.makeText(Utils.context, "æ²¡æœ‰æ‰¾åˆ°SDå¡", Toast.LENGTH_SHORT).show();
 		}
 	}
 
 	/**
-	 * Ìø×ªµ½ÏµÍ³°²×°Èí¼şÒ³Ãæ,°²×°Íê³Éºó×Ô¶¯´ò¿ª
+	 * è·³è½¬åˆ°ç³»ç»Ÿå®‰è£…è½¯ä»¶é¡µé¢,å®‰è£…å®Œæˆåè‡ªåŠ¨æ‰“å¼€
 	 * 
 	 * @author: cl
-	 * @date: 2016-1-29-ÏÂÎç3:54:37
+	 * @date: 2016-1-29-ä¸‹åˆ3:54:37
 	 */
 	private static void installApp(File result) {
 		/*
-		 * °²×°Íê³ÉÎŞÑ¡Ôñ Intent intent = new Intent(Intent.ACTION_VIEW);
+		 * å®‰è£…å®Œæˆæ— é€‰æ‹© Intent intent = new Intent(Intent.ACTION_VIEW);
 		 * intent.addCategory(Intent.CATEGORY_DEFAULT);
 		 * intent.setDataAndType(Uri.fromFile(result),
 		 * "application/vnd.android.package-archive");
 		 * Utils.context.startActivity(intent);
 		 */
 
-		// °²×°Íê³Éºó¿ÉÑ¡Ôñ´ò¿ª
+		// å®‰è£…å®Œæˆåå¯é€‰æ‹©æ‰“å¼€
 		Intent intent = new Intent(Intent.ACTION_VIEW);
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		intent.setDataAndType(Uri.fromFile(result),
 				"application/vnd.android.package-archive");
 		Utils.context.startActivity(intent);
-//		android.os.Process.killProcess(android.os.Process.myPid());¸Éµôµ±Ç°½ø³Ì,Ô¶Àë´Ë·½·¨-_-.
+		// android.os.Process.killProcess(android.os.Process.myPid());å¹²æ‰å½“å‰è¿›ç¨‹,è¿œç¦»æ­¤æ–¹æ³•-_-.
 
 	}
 

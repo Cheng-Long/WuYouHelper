@@ -8,13 +8,13 @@
     <string name="home_title">功能列表</string>
     <string name="home_marquee">白天我得好好休息，因为晚上我还要睡觉！- 无忧</string>
     <string name="home_safe">手机防盗</string>
-    <string name="home_callmsgsafe">通讯卫士</string>
+    <string name="home_callmsgsafe">骚扰拦截</string>
     <string name="home_apps">软件管理</string>
     <string name="home_taskmanager">进程管理</string>
     <string name="home_netmanager">流量统计</string>
     <string name="home_trojan">手机杀毒</string>
     <string name="home_sysoptimize">缓存清理</string>
-    <string name="home_tools">高级工具</string>
+    <string name="home_tools">应用工具</string>
     <string name="alert_title">升级提醒</string>
 
 </resources>

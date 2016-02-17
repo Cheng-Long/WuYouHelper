@@ -6,11 +6,9 @@
     <solid android:color="@color/transparent_background_half" />
     <padding 
 		android:left="3dp" 
-		android:top="5dp" 
+		android:top="3dp" 
 		android:right="3dp" 
 		android:bottom="3dp" />
-    <solid
-        android:color="@color/transparent_background_half" />
     <size android:width="15dp"
           android:height="15dp" />
 </shape>

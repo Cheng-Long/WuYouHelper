@@ -2,20 +2,20 @@ package com.example.wuyouhelper.general;
 
 
 /**
- * È«¾Ö³£Á¿Àà
+ * å…¨å±€å¸¸é‡ç±»
  * 
  * @author: cl
- * @date: 2016-1-27-ÏÂÎç6:44:45
+ * @date: 2016-1-27-ä¸‹åˆ6:44:45
  */
 public class Constants {
 
 	/**
-	 * °æ±¾Ãû(n.n)
+	 * ç‰ˆæœ¬å(n.n)
 	 */
 	public static String VERSION_NAME;
 
 	/**
-	 * °æ±¾ºÅ(n)
+	 * ç‰ˆæœ¬å·(n)
 	 */
 	public static int VERSION_CODE;
 
