@@ -39,7 +39,7 @@ public class Utils {
 
 	private static String downloadUrl;
 
-	public static String URL_JSON = "http://10.0.2.2/long/update.json";
+	public static String URL_JSON = "http://c-long.6655.la/long/update.json";
 
 	private static ProgressDialog mypDialog;
 
@@ -64,6 +64,7 @@ public class Utils {
 								Utils.context,
 								"无法连接到服务器(" + httpexception.getExceptionCode()
 										+ ")", Toast.LENGTH_SHORT).show();
+
 					}
 
 					@Override
@@ -93,7 +94,7 @@ public class Utils {
 			e.printStackTrace();
 		}
 
-		if (newVersionCode > Constants.VERSION_CODE) {//有新版本
+		if (newVersionCode > Constants.VERSION_CODE) {// 有新版本
 			// 提示是否更新
 			Builder builder = new Builder(Utils.context);
 			builder.setIcon(R.drawable.ic_launcher)
@@ -110,8 +111,8 @@ public class Utils {
 			alertDialog.getWindow().setLayout(
 					alertDialog.getWindow().getAttributes().width, 400);
 
-		}else{//当前已是最新版本
-			
+		} else {// 当前已是最新版本
+
 		}
 	}
 
