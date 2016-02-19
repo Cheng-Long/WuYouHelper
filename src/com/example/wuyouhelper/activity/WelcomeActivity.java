@@ -27,7 +27,7 @@ public class WelcomeActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_welcome);
+		setContentView(R.layout.welcome_activity);
 
 		getVersion();
 		startTimer();
@@ -62,9 +62,8 @@ public class WelcomeActivity extends Activity {
 
 			@Override
 			public void run() {
-				Intent intent = new Intent(WelcomeActivity.this,
-						HomeActivity.class);
-				startActivity(intent);
+				startActivity(new Intent(WelcomeActivity.this,
+						HomeActivity.class));
 				finish();
 			}
 		}, WelcomeActivity.WAIT_TIME);

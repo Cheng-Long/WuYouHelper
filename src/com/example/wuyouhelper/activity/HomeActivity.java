@@ -1,6 +1,5 @@
 package com.example.wuyouhelper.activity;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
@@ -43,12 +42,15 @@ public class HomeActivity extends Activity {
 			R.string.home_trojan, R.string.home_sysoptimize,
 			R.string.home_tools };
 
+	/**
+	 * 主页设置按钮
+	 */
 	private ImageButton ib_settings;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_home);
+		setContentView(R.layout.home_activity);
 
 		Utils.checkForUpdate(this);
 		fillHome();
@@ -65,7 +67,6 @@ public class HomeActivity extends Activity {
 		ib_settings = (ImageButton) findViewById(R.id.ib_settings);
 		ib_settings.setOnTouchListener(new OnTouchListener() {
 
-			@SuppressLint({ "ResourceAsColor", "ClickableViewAccessibility" })
 			@Override
 			public boolean onTouch(View v, MotionEvent event) {
 				GradientDrawable gradientDrawable = (GradientDrawable) ib_settings
@@ -77,7 +78,7 @@ public class HomeActivity extends Activity {
 
 				case MotionEvent.ACTION_UP:
 					gradientDrawable.setColor(0x50000000);
-
+					
 					break;
 				}
 				//true表示事件传递到这里就结束了,false表示事件还未处理完,会继续传递
@@ -96,44 +97,45 @@ public class HomeActivity extends Activity {
 	 */
 	private void fillHome() {
 		GridView gv_home = (GridView) findViewById(R.id.gv_home);
-		gv_home.setAdapter(new BaseAdapter() {
-
-			@Override
-			public View getView(int position, View convertView, ViewGroup parent) {
-				ViewHolder viewHolder = null;
-				if (convertView == null) {
-					viewHolder = new ViewHolder();
-					convertView = View.inflate(HomeActivity.this,
-							R.layout.home_list_item, null);
-					viewHolder.iv = (ImageView) convertView
-							.findViewById(R.id.iv_home_item);
-					viewHolder.tv = (TextView) convertView
-							.findViewById(R.id.tv_home_item);
-					convertView.setTag(viewHolder);
-				} else {
-					viewHolder = (ViewHolder) convertView.getTag();
-				}
-				viewHolder.iv
-						.setImageResource(HomeActivity.IV_HOME_ITEM[position]);
-				viewHolder.tv.setText(HomeActivity.TV_HOME_ITEM[position]);
-				return convertView;
+		gv_home.setAdapter(new HomeAdapter());
+	}
+	
+	class HomeAdapter extends BaseAdapter{
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			ViewHolder viewHolder = null;
+			if (convertView == null) {
+				viewHolder = new ViewHolder();
+				convertView = View.inflate(HomeActivity.this,
+						R.layout.home_list_item, null);
+				viewHolder.iv = (ImageView) convertView
+						.findViewById(R.id.iv_home_item);
+				viewHolder.tv = (TextView) convertView
+						.findViewById(R.id.tv_home_item);
+				convertView.setTag(viewHolder);
+			} else {
+				viewHolder = (ViewHolder) convertView.getTag();
 			}
+			viewHolder.iv
+					.setImageResource(HomeActivity.IV_HOME_ITEM[position]);
+			viewHolder.tv.setText(HomeActivity.TV_HOME_ITEM[position]);
+			return convertView;
+		}
 
-			@Override
-			public long getItemId(int position) {
-				return position;
-			}
+		@Override
+		public long getItemId(int position) {
+			return position;
+		}
 
-			@Override
-			public Object getItem(int position) {
-				return HomeActivity.TV_HOME_ITEM[position];
-			}
+		@Override
+		public Object getItem(int position) {
+			return HomeActivity.TV_HOME_ITEM[position];
+		}
 
-			@Override
-			public int getCount() {
-				return HomeActivity.TV_HOME_ITEM.length;
-			}
-		});
+		@Override
+		public int getCount() {
+			return HomeActivity.TV_HOME_ITEM.length;
+		}
 	}
 
 	class ViewHolder {

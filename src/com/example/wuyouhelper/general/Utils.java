@@ -31,23 +31,41 @@ import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
  */
 public class Utils {
 
+	/**
+	 * 需要显示弹框的上下文
+	 */
 	private static Context context;
 
+	/**
+	 * 最新版本号-来自服务器
+	 */
 	private static int newVersionCode;
 
+	/**
+	 * 版本描述-来自服务器
+	 */
 	private static String description;
 
+	/**
+	 * apk安装包下载地址-来自服务器
+	 */
 	private static String downloadUrl;
 
+	/**
+	 * 向服务器检查更新的请求链接
+	 */
 	public static String URL_JSON = "http://c-long.6655.la/long/update.json";
 
+	/**
+	 * 下载进度弹框
+	 */
 	private static ProgressDialog mypDialog;
 
 	/**
-	 * 检查更新
 	 * 
 	 * @author: cl
-	 * @date: 2016-1-28-下午3:46:07
+	 * @param context
+	 * @date: 2016-2-19-下午2:45:34
 	 */
 	public static void checkForUpdate(Context context) {
 		Utils.context = context;
