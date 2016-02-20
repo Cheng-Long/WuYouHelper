@@ -3,4 +3,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_background2"
-    tools:context="com.example.wuyouhelper.activity.WelcomeActivity" />
+    tools:context="com.clong.wuyouhelper.activity.WelcomeActivity" />

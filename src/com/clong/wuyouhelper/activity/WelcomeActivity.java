@@ -1,10 +1,10 @@
-package com.example.wuyouhelper.activity;
+package com.clong.wuyouhelper.activity;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.example.wuyouhelper.R;
-import com.example.wuyouhelper.general.Constants;
+import com.clong.wuyouhelper.R;
+import com.clong.wuyouhelper.general.Constants;
 
 import android.app.Activity;
 import android.content.Intent;

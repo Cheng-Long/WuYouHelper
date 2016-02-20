@@ -1,4 +1,4 @@
-package com.example.wuyouhelper.general;
+package com.clong.wuyouhelper.general;
 
 
 /**

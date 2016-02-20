@@ -1,4 +1,4 @@
-package com.example.wuyouhelper.general;
+package com.clong.wuyouhelper.general;
 
 import java.io.File;
 
@@ -16,7 +16,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.widget.Toast;
 
-import com.example.wuyouhelper.R;
+import com.clong.wuyouhelper.R;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -54,7 +54,7 @@ public class Utils {
 	/**
 	 * 向服务器检查更新的请求链接
 	 */
-	public static String URL_JSON = "http://c-long.6655.la/long/update.json";
+	public static String URL_JSON = "http://192.168.1.108/long/update.json";
 
 	/**
 	 * 下载进度弹框
