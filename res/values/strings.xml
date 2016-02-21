@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- 按钮按钮抬起颜色 -->
-    <drawable name="clr_normal">#ffffff</drawable>
-    <drawable name="clr_pressed">#cfe2f3</drawable>
+    <drawable name="pressed">#20000000</drawable>
+    <drawable name="item_normal">#ffffff</drawable>
+    <drawable name="button_normal">#448aff</drawable>
 
     <!-- 主页面 -->
     <string name="app_name">无忧助手</string>

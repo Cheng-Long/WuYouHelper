@@ -54,7 +54,7 @@ public class Utils {
 	/**
 	 * 向服务器检查更新的请求链接
 	 */
-	public static String URL_JSON = "http://192.168.1.108/long/update.json";
+	public static String URL_JSON = "http://c-long.6655.la/long/update.json";
 
 	/**
 	 * 下载进度弹框
