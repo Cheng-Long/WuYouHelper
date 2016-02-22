@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +16,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.clong.wuyouhelper.R;
 import com.clong.wuyouhelper.general.Utils;
@@ -50,17 +52,34 @@ public class HomeActivity extends Activity {
 	 */
 	private ImageButton ib_settings;
 
+	private long exitTime = 0;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_activity);
 
-		SharedPreferences sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
-		if(sharedPreferences.getBoolean("auto_update", true)){
+		SharedPreferences sharedPreferences = getSharedPreferences("config",
+				MODE_PRIVATE);
+		if (sharedPreferences.getBoolean("auto_update", true)) {
 			Utils.checkForUpdate(this);
 		}
 		fillHome();
 		settingListener();
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			if ((System.currentTimeMillis() - exitTime) > 2000) {
+				Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+				exitTime = System.currentTimeMillis();
+			} else {
+				finish();
+			}
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 
 	/**
