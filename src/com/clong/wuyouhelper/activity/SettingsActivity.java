@@ -47,26 +47,21 @@ public class SettingsActivity extends Activity {
 	 */
 	private void antoUpdateItem() {
 		siv = (SettingItemView) findViewById(R.id.siv_autoUpdate);
-		siv.setText(R.string.setting_autoUpdate);
-		
+
 		sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
 		auto_update = sharedPreferences.getBoolean("auto_update", true);
-		if (auto_update) {
-			siv.setImageResource(R.drawable.switch_on_normal);
-		} else {
-			siv.setImageResource(R.drawable.switch_off_normal);
-		}
+		siv.setSwitch(auto_update);
 		siv.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
 				auto_update = sharedPreferences.getBoolean("auto_update", true);
 				if (auto_update) {
-					siv.setImageResource(R.drawable.switch_off_normal);
+					siv.setSwitch(false);
 					sharedPreferences.edit().putBoolean("auto_update", false)
 							.commit();
 				} else {
-					siv.setImageResource(R.drawable.switch_on_normal);
+					siv.setSwitch(true);
 					sharedPreferences.edit().putBoolean("auto_update", true)
 							.commit();
 				}
