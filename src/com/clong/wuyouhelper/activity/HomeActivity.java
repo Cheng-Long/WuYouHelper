@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -54,13 +56,14 @@ public class HomeActivity extends Activity {
 
 	private long exitTime = 0;
 
+	private SharedPreferences sharedPreferences;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_activity);
 
-		SharedPreferences sharedPreferences = getSharedPreferences("config",
-				MODE_PRIVATE);
+		sharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
 		if (sharedPreferences.getBoolean("auto_update", true)) {
 			Utils.checkForUpdate(this);
 		}
@@ -124,7 +127,7 @@ public class HomeActivity extends Activity {
 	}
 
 	/**
-	 * 填充Home主页面
+	 * 填充Home主页面,并监听子菜单
 	 * 
 	 * @author: cl
 	 * @date: 2016-1-28-下午12:05:29
@@ -132,6 +135,20 @@ public class HomeActivity extends Activity {
 	private void fillHome() {
 		GridView gv_home = (GridView) findViewById(R.id.gv_home);
 		gv_home.setAdapter(new HomeAdapter());
+		gv_home.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				switch (HomeActivity.TV_HOME_ITEM[position]) {
+				// 手机防盗菜单
+				case R.string.home_safe:
+					startActivity(new Intent(HomeActivity.this,
+							SafeActivity.class));
+					break;
+				}
+			}
+		});
 	}
 
 	class HomeAdapter extends BaseAdapter {

@@ -20,5 +20,9 @@
 
     <!-- 设置 -->
     <string name="setting_autoUpdate">开启自动更新</string>
+    
+    <!-- 手机防盗 -->
+    <string name="pass_hint">密码</string>
+    <string name="pass_confirm_hint">确认密码</string>
 
 </resources>

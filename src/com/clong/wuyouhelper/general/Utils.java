@@ -62,6 +62,7 @@ public class Utils {
 	private static ProgressDialog mypDialog;
 
 	/**
+	 * 连接服务器检查更新
 	 * 
 	 * @author: cl
 	 * @param context
