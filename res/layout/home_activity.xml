@@ -4,29 +4,6 @@
     android:layout_height="match_parent"
     android:background="@drawable/star_home" >
 
-    <!-- <TextView -->
-    <!-- android:layout_width="match_parent" -->
-    <!-- android:layout_height="50dp" -->
-    <!-- android:background="@color/main" -->
-    <!-- android:gravity="center" -->
-    <!-- android:text="@string/home_title" -->
-    <!-- android:textColor="@color/white" -->
-    <!-- android:textSize="22sp" /> -->
-
-
-    <!-- <TextView -->
-    <!-- android:layout_width="match_parent" -->
-    <!-- android:layout_height="wrap_content" -->
-    <!-- android:layout_marginBottom="5dp" -->
-    <!-- android:layout_marginTop="5dp" -->
-    <!-- android:ellipsize="marquee" -->
-    <!-- android:focusable="true" -->
-    <!-- android:focusableInTouchMode="true" -->
-    <!-- android:singleLine="true" -->
-    <!-- android:text="@string/home_marquee" -->
-    <!-- android:textColor="@color/white" -->
-    <!-- android:textSize="18sp" /> -->
-
     <GridView
         android:id="@+id/gv_home"
         android:layout_width="wrap_content"
@@ -39,14 +16,24 @@
         android:verticalSpacing="5dp" >
     </GridView>
 
-    <ImageButton
-        android:id="@+id/ib_settings"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/shape_circle"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/circle_selector"
+        android:onClick="sidebar"
+        android:src="@drawable/home_slip_left" />
+    
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/circle_selector"
+        android:onClick="setting"
         android:src="@drawable/home_settings" />
-
+    
 </RelativeLayout>

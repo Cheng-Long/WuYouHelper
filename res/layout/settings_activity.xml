@@ -8,10 +8,10 @@
 
     <TextView
         android:id="@+id/tv_title"
-        style="@style/TitleTheme"
+        style="@style/TitleStyle"
         android:text="@string/home_settings" />
 
-    <ImageButton style="@style/BackTheme" />
+    <ImageButton style="@style/BackStyle" />
 
     <com.clong.wuyouhelper.view.SettingItemView
         android:id="@+id/siv_autoUpdate"

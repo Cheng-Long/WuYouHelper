@@ -1,4 +1,4 @@
-package com.clong.wuyouhelper.general;
+package com.clong.wuyouhelper.utils;
 
 import java.io.File;
 
@@ -17,6 +17,7 @@ import android.os.Environment;
 import android.widget.Toast;
 
 import com.clong.wuyouhelper.R;
+import com.clong.wuyouhelper.constants.Constants;
 import com.lidroid.xutils.HttpUtils;
 import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
@@ -24,12 +25,12 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
 /**
- * 工具类
+ * 更新工具类
  * 
  * @author: cl
  * @date: 2016-1-28-下午3:39:17
  */
-public class Utils {
+public class UpdateUtil {
 
 	/**
 	 * 需要显示弹框的上下文
@@ -69,18 +70,18 @@ public class Utils {
 	 * @date: 2016-2-19-下午2:45:34
 	 */
 	public static void checkForUpdate(Context context) {
-		Utils.context = context;
+		UpdateUtil.context = context;
 		// 连接服务器获取json
 		// 请求结果会进入缓存,持续时间大概30s,1min内
 		// 缓存存在期间,请求该链接会直接调用回调函数RequestCallBack,使用缓存中的返回结果
 		HttpUtils http = new HttpUtils();
-		http.send(HttpMethod.GET, Utils.URL_JSON,
+		http.send(HttpMethod.GET, UpdateUtil.URL_JSON,
 				new RequestCallBack<String>() {
 
 					@Override
 					public void onFailure(HttpException httpexception, String s) {
 						Toast.makeText(
-								Utils.context,
+								UpdateUtil.context,
 								"无法连接到服务器(" + httpexception.getExceptionCode()
 										+ ")", Toast.LENGTH_SHORT).show();
 
@@ -108,14 +109,14 @@ public class Utils {
 			description = object.getString("description");
 			downloadUrl = object.getString("downloadUrl");
 		} catch (JSONException e) {
-			Toast.makeText(Utils.context, "更新数据解析失败", Toast.LENGTH_SHORT)
+			Toast.makeText(UpdateUtil.context, "更新数据解析失败", Toast.LENGTH_SHORT)
 					.show();
 			e.printStackTrace();
 		}
 
 		if (newVersionCode > Constants.VERSION_CODE) {// 有新版本
 			// 提示是否更新
-			Builder builder = new Builder(Utils.context);
+			Builder builder = new Builder(UpdateUtil.context);
 			builder.setIcon(R.drawable.ic_launcher)
 					.setTitle(R.string.alert_title).setMessage(description);
 			builder.setNegativeButton("下次再说", null);
@@ -144,7 +145,7 @@ public class Utils {
 	private static void alertDownload() {
 		if (Environment.getExternalStorageState().equals(
 				Environment.MEDIA_MOUNTED)) {
-			mypDialog = new ProgressDialog(Utils.context);
+			mypDialog = new ProgressDialog(UpdateUtil.context);
 			// 设置进度条风格，风格为长形，有刻度的
 			mypDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 			// 设置ProgressDialog 标题图标
@@ -180,7 +181,7 @@ public class Utils {
 
 						@Override
 						public void onSuccess(ResponseInfo<File> arg0) {
-							Toast.makeText(Utils.context, "下载完成",
+							Toast.makeText(UpdateUtil.context, "下载完成",
 									Toast.LENGTH_SHORT).show();
 							mypDialog.dismiss();
 							installApp(arg0.result);
@@ -192,7 +193,7 @@ public class Utils {
 							if (arg1.equalsIgnoreCase("maybe the file has downloaded completely")) {
 								mypDialog.setProgress(1);
 								mypDialog.setMax(1);
-								Toast.makeText(Utils.context, "安装包已存在",
+								Toast.makeText(UpdateUtil.context, "安装包已存在",
 										Toast.LENGTH_SHORT).show();
 								mypDialog.dismiss();
 								installApp(new File(filePath));
@@ -203,7 +204,7 @@ public class Utils {
 						}
 					});
 		} else {
-			Toast.makeText(Utils.context, "没有找到SD卡", Toast.LENGTH_SHORT).show();
+			Toast.makeText(UpdateUtil.context, "没有找到SD卡", Toast.LENGTH_SHORT).show();
 		}
 	}
 
@@ -227,7 +228,7 @@ public class Utils {
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 		intent.setDataAndType(Uri.fromFile(result),
 				"application/vnd.android.package-archive");
-		Utils.context.startActivity(intent);
+		UpdateUtil.context.startActivity(intent);
 		// android.os.Process.killProcess(android.os.Process.myPid());干掉当前进程,远离此方法-_-.
 
 	}

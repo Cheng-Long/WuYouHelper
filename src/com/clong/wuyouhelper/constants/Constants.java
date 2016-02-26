@@ -1,4 +1,4 @@
-package com.clong.wuyouhelper.general;
+package com.clong.wuyouhelper.constants;
 
 
 /**

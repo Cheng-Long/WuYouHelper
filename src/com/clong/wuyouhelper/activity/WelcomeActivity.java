@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.clong.wuyouhelper.R;
-import com.clong.wuyouhelper.general.Constants;
+import com.clong.wuyouhelper.constants.Constants;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -2,13 +2,13 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
@@ -19,8 +19,8 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
-    <!-- 标题栏主题 -->
-    <style name="TitleTheme">
+    <!-- 标题栏样式 -->
+    <style name="TitleStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:background">@color/main</item>
@@ -29,13 +29,20 @@
         <item name="android:textSize">22sp</item>
     </style>
 
-    <!-- 后退按钮主题 -->
-    <style name="BackTheme">
+    <!-- 后退按钮样式 -->
+    <style name="BackStyle">
         <item name="android:layout_width">50dp</item>
         <item name="android:layout_height">50dp</item>
-        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:background">@drawable/item_selector</item>
         <item name="android:onClick">back</item>
         <item name="android:src">@drawable/left</item>
+    </style>
+
+    <!-- 下划线样式 -->
+    <style name="UnderlineStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.1dp</item>
+        <item name="android:background">@color/transparent_background_underline</item>
     </style>
 
 </resources>

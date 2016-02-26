@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_below="@id/tv_title"
-        android:background="@drawable/button_selector"
+        android:background="@drawable/item_selector"
         android:paddingLeft="15dp"
         android:paddingRight="15dp" >
 
@@ -30,9 +30,8 @@
     </RelativeLayout>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="0.1dp"
-        android:layout_below="@id/rl_autoUpdate"
-        android:background="@color/transparent_background_underline" />
+        style="@style/UnderlineStyle"
+        android:layout_below="@id/rl_autoUpdate" >
+    </TextView>
 
 </RelativeLayout>
