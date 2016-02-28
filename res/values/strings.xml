@@ -17,7 +17,14 @@
 
     <!-- 设置 -->
     <string name="setting_autoUpdate">开启自动更新</string>
-    
+
     <!-- 手机防盗 -->
+    <string name="safe_remind">尚未开启防盗保护</string>
+    <string name="safe_start">开启防盗保护</string>
+    <string name="safe_tracking">追踪手机位置</string>
+    <string name="safe_warning">播放报警音乐</string>
+    <string name="safe_wipedata">远程删除数据</string>
+    <string name="safe_lockscreen">远程锁定屏幕</string>
+    <string name="safe_restart">进入设置向导</string>
 
 </resources>

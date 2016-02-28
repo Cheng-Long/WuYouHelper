@@ -68,6 +68,7 @@ public class SettingItemView extends RelativeLayout {
 		iv_switch = (ImageView) findViewById(R.id.iv_switch);
 
 		setDesc(desc);
+		setSwitch(true);
 	}
 
 	/**

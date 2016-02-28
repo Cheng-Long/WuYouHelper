@@ -1,9 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:long="http://schemas.android.com/apk/res/com.clong.wuyouhelper"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white" >
+    android:background="@color/white"
+    android:orientation="vertical" >
 
-    <include layout="@layout/safe_title_public"/>
+    <include layout="@layout/safe_title_public" />
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/main" >
+
+        <ImageView
+            android:id="@+id/safe_state"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/safe_open" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/safe_state"
+            android:layout_centerHorizontal="true"
+            android:text="@string/safe_remind"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/main_deep"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/safe_start"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/main" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/main_deep"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/safe_restart"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <com.clong.wuyouhelper.view.SettingItemView
+        android:id="@+id/safe_tracking"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        long:desc="@string/safe_tracking"
+        long:switch_on="@drawable/arrow_right" >
+    </com.clong.wuyouhelper.view.SettingItemView>
+
+    <com.clong.wuyouhelper.view.SettingItemView
+        android:id="@+id/safe_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        long:desc="@string/safe_warning"
+        long:switch_on="@drawable/arrow_right" >
+    </com.clong.wuyouhelper.view.SettingItemView>
+
+    <com.clong.wuyouhelper.view.SettingItemView
+        android:id="@+id/safe_wipedata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        long:desc="@string/safe_wipedata"
+        long:switch_on="@drawable/arrow_right" >
+    </com.clong.wuyouhelper.view.SettingItemView>
+
+    <com.clong.wuyouhelper.view.SettingItemView
+        android:id="@+id/safe_lockscreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        long:desc="@string/safe_lockscreen"
+        long:switch_on="@drawable/arrow_right" >
+    </com.clong.wuyouhelper.view.SettingItemView>
+
+</LinearLayout>
