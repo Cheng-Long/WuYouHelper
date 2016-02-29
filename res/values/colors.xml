@@ -5,6 +5,8 @@
     <color name="main">#448aff</color>
     <!-- 主色_深色 -->
     <color name="main_deep">#327efd</color>
+    <!-- 主色_透明叠加 -->
+    <color name="main_tran">#387add</color>
     <!-- 白色 -->
     <color name="white">#ffffff</color>
     <!-- 黑色 -->

@@ -1,6 +1,5 @@
 package com.clong.wuyouhelper.constants;
 
-
 /**
  * 全局常量类
  * 
@@ -18,5 +17,10 @@ public class Constants {
 	 * 版本号(n)
 	 */
 	public static int VERSION_CODE;
+
+	/**
+	 * 防盗密码是否已输入
+	 */
+	public static boolean SAFE_PASS;
 
 }

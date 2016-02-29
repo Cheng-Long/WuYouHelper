@@ -16,15 +16,22 @@
     <string name="alert_title">升级提醒</string>
 
     <!-- 设置 -->
-    <string name="setting_autoUpdate">开启自动更新</string>
+    <string name="setting_autoUpdate">自动检查更新</string>
 
     <!-- 手机防盗 -->
-    <string name="safe_remind">尚未开启防盗保护</string>
+    <string name="safe_remind_off">尚未开启防盗保护</string>
+    <string name="safe_remind_on">已开启防盗保护</string>
     <string name="safe_start">开启防盗保护</string>
+    <string name="safe_excute">发送远程指令</string>
     <string name="safe_tracking">追踪手机位置</string>
     <string name="safe_warning">播放报警音乐</string>
     <string name="safe_wipedata">远程删除数据</string>
     <string name="safe_lockscreen">远程锁定屏幕</string>
     <string name="safe_restart">进入设置向导</string>
+    <string name="safe_pass">输入防盗密码</string>
+    <string name="safe_showpass">显示密码</string>
+    <string name="safe_confirm">确认</string>
+    <string name="safe_resetpass">重置密码</string>
+    <string name="safe_retry">密码错误,请重试</string>
 
 </resources>

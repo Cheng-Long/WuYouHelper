@@ -71,6 +71,7 @@ public class HomeActivity extends Activity {
 				exitTime = System.currentTimeMillis();
 			} else {
 				finish();
+				System.exit(0);
 			}
 			return true;
 		}
@@ -117,7 +118,7 @@ public class HomeActivity extends Activity {
 				// 手机防盗菜单
 				case R.string.home_safe:
 					startActivity(new Intent(HomeActivity.this,
-							SafeActivity.class));
+							Safe_CheckPass_Activity.class));
 					break;
 				}
 			}

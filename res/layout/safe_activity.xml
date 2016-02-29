@@ -14,7 +14,7 @@
         android:background="@color/main" >
 
         <ImageView
-            android:id="@+id/safe_state"
+            android:id="@+id/iv_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -22,11 +22,12 @@
             android:src="@drawable/safe_open" />
 
         <TextView
+            android:id="@+id/tv_stateDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/safe_state"
+            android:layout_below="@+id/iv_state"
             android:layout_centerHorizontal="true"
-            android:text="@string/safe_remind"
+            android:text="@string/safe_remind_off"
             android:textColor="@color/white"
             android:textSize="22sp" />
     </RelativeLayout>
@@ -37,10 +38,11 @@
         android:orientation="horizontal" >
 
         <Button
+            android:id="@+id/bt_startSafe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/main_deep"
+            android:background="@drawable/button_selector"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:text="@string/safe_start"
@@ -48,24 +50,28 @@
             android:textSize="20sp" />
 
         <TextView
-            android:layout_width="1dp"
+            android:id="@+id/tv_verticalLine"
+            android:layout_width="2dp"
             android:layout_height="match_parent"
-            android:background="@color/main" />
+            android:background="@color/main"
+            android:visibility="gone" />
 
         <Button
+            android:id="@+id/bt_restart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@color/main_deep"
+            android:background="@drawable/button_selector"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:text="@string/safe_restart"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:visibility="gone" />
     </LinearLayout>
 
     <com.clong.wuyouhelper.view.SettingItemView
-        android:id="@+id/safe_tracking"
+        android:id="@+id/siv_tracking"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -74,7 +80,7 @@
     </com.clong.wuyouhelper.view.SettingItemView>
 
     <com.clong.wuyouhelper.view.SettingItemView
-        android:id="@+id/safe_warning"
+        android:id="@+id/siv_warning"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -83,7 +89,7 @@
     </com.clong.wuyouhelper.view.SettingItemView>
 
     <com.clong.wuyouhelper.view.SettingItemView
-        android:id="@+id/safe_wipedata"
+        android:id="@+id/siv_wipedata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
@@ -92,7 +98,7 @@
     </com.clong.wuyouhelper.view.SettingItemView>
 
     <com.clong.wuyouhelper.view.SettingItemView
-        android:id="@+id/safe_lockscreen"
+        android:id="@+id/siv_lockscreen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:clickable="true"
