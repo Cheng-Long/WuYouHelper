@@ -29,9 +29,21 @@
     <string name="safe_lockscreen">远程锁定屏幕</string>
     <string name="safe_restart">进入设置向导</string>
     <string name="safe_pass">输入防盗密码</string>
+    <string name="safe_pass_sure">确认防盗密码</string>
     <string name="safe_showpass">显示密码</string>
     <string name="safe_confirm">确认</string>
     <string name="safe_resetpass">重置密码</string>
     <string name="safe_retry">密码错误,请重试</string>
+    <string name="safe_setpass_comments">设置防盗密码:将用于远程控制被盗手机及进入防盗功能,请妥善保存</string>
+    <string name="safe_setphone_mail_comments">设置安全号码,邮箱:将用于接收更换SIM卡时的通知短信及邮件,也用于找回密码</string>
+    <string name="safe_setfinish_comments">开启远程控制:可用其它手机发送对应短信指令,远程控制被盗手机</string>
+    <string name="safe_setup_next">下一步</string>
+    <string name="safe_setup_finish">完成</string>
+    <string name="safe_phone">设置安全号码</string>
+    <string name="safe_mail">设置安全邮箱</string>
+    <string name="safe_tracking_command">追踪手机位置:\nweizhi#防盗密码</string>
+    <string name="safe_warning_command">播放报警音乐:\njingbao#防盗密码</string>
+    <string name="safe_wipedata_command">远程删除数据:\nshanchu#防盗密码</string>
+    <string name="safe_lockscreen_command">远程锁定屏幕:\nsuoding#防盗密码</string>
 
 </resources>

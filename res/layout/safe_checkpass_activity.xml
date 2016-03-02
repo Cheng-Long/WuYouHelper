@@ -17,11 +17,11 @@
 
         <EditText
             android:id="@+id/et_password"
+            style="@style/ItemSizeStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/safe_pass"
-            android:inputType="textPassword"
-            android:textSize="20sp" />
+            android:inputType="textPassword" />
 
         <TextView
             android:layout_width="wrap_content"

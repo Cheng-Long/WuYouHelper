@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/safe_setup_public" />
+
+    <TextView
+        style="@style/ItemSizeStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/protection_setup_step2"
+        android:drawablePadding="5dp"
+        android:text="@string/safe_setphone_mail_comments" />
+
+    <TextView
+        style="@style/UnderlineStyle"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <EditText
+            android:id="@+id/et_phone"
+            style="@style/ItemSizeStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/safe_phone"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/et_mail"
+            style="@style/ItemSizeStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_phone"
+            android:hint="@string/safe_mail" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/button_selector"
+            android:onClick="setupSecond"
+            android:text="@string/safe_setup_next"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</LinearLayout>

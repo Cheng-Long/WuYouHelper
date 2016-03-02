@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/safe_setup_public" />
+
+    <TextView
+        style="@style/ItemSizeStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/protection_setup_step1"
+        android:drawablePadding="5dp"
+        android:text="@string/safe_setpass_comments" />
+
+    <TextView
+        style="@style/UnderlineStyle"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <EditText
+            android:id="@+id/et_pass"
+            style="@style/ItemSizeStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:hint="@string/safe_pass"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/et_pass_sure"
+            style="@style/ItemSizeStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_pass"
+            android:hint="@string/safe_pass_sure"
+            android:inputType="textPassword" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/button_selector"
+            android:onClick="setupFirst"
+            android:text="@string/safe_setup_next"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</LinearLayout>

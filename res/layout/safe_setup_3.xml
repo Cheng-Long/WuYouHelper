@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:long="http://schemas.android.com/apk/res/com.clong.wuyouhelper"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <include layout="@layout/safe_setup_public" />
+
+    <TextView
+        style="@style/ItemSizeStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:drawableLeft="@drawable/protection_setup_step3"
+        android:drawablePadding="5dp"
+        android:text="@string/safe_setfinish_comments" />
+
+    <TextView
+        style="@style/UnderlineStyle"
+        android:layout_marginTop="10dp" />
+
+    <com.clong.wuyouhelper.view.SettingItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        long:desc="@string/safe_tracking_command" >
+    </com.clong.wuyouhelper.view.SettingItemView>
+
+    <com.clong.wuyouhelper.view.SettingItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        long:desc="@string/safe_warning_command" >
+    </com.clong.wuyouhelper.view.SettingItemView>
+
+    <com.clong.wuyouhelper.view.SettingItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        long:desc="@string/safe_wipedata_command" >
+    </com.clong.wuyouhelper.view.SettingItemView>
+
+    <com.clong.wuyouhelper.view.SettingItemView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        long:desc="@string/safe_lockscreen_command" >
+    </com.clong.wuyouhelper.view.SettingItemView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/button_selector"
+            android:onClick="setupFinish"
+            android:text="@string/safe_setup_finish"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+</LinearLayout>
