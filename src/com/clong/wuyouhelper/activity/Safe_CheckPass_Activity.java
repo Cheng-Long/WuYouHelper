@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.clong.wuyouhelper.R;
 import com.clong.wuyouhelper.constants.Constants;
 import com.clong.wuyouhelper.utils.MailUtil;
+import com.clong.wuyouhelper.utils.StringUtil;
 
 /**
  * 手机防盗_验证密码
@@ -40,6 +41,14 @@ public class Safe_CheckPass_Activity extends Activity {
 	 * 存储的密码
 	 */
 	private String safe_password;
+	/**
+	 * 存储的手机号
+	 */
+	private String safe_phone;
+	/**
+	 * 存储的邮箱地址
+	 */
+	private String safe_mail;
 	/**
 	 * 密码编辑框
 	 */
@@ -133,7 +142,9 @@ public class Safe_CheckPass_Activity extends Activity {
 	 * @date: 2016-2-29-下午1:10:57
 	 */
 	public void submit(View v) {
-		if (et_password.getText().toString().equals(safe_password)) {
+		if (StringUtil.toMD5(
+				et_password.getText().toString() + safe_phone + safe_mail)
+				.equals(safe_password)) {
 			startActivity(new Intent(this, SafeActivity.class));
 			Constants.SAFE_PASS = true;
 			finish();
@@ -165,15 +176,17 @@ public class Safe_CheckPass_Activity extends Activity {
 							// 发送重置密码到安全邮箱
 							String uuid = UUID.randomUUID().toString();
 							uuid = uuid.substring(0, 6);
-							String to = "1011056799@qq.com";
+							String to = safe_mail;
 							String subject = "无忧助手-手机防盗重置密码";
 							String content = "重置了手机防盗密码,新密码为：" + uuid;
 							MailUtil.sendEmail(to, subject, content);
 
 							// 更新密码
+							safe_password = StringUtil.toMD5(uuid + safe_phone
+									+ safe_mail);
 							sharedPreferences.edit()
-									.putString("safe_password", uuid).commit();
-							safe_password = uuid;
+									.putString("safe_password", safe_password)
+									.commit();
 
 							handler.sendEmptyMessage(0);
 
@@ -205,7 +218,9 @@ public class Safe_CheckPass_Activity extends Activity {
 		if (TextUtils.isEmpty(safe_password) || Constants.SAFE_PASS) {
 			startActivity(new Intent(this, SafeActivity.class));
 			finish();
+		} else {
+			safe_phone = sharedPreferences.getString("safe_phone", "");
+			safe_mail = sharedPreferences.getString("safe_mail", "");
 		}
-		// 否则停留验证密码
 	}
 }

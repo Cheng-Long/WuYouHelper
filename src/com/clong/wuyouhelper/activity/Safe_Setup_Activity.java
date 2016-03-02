@@ -2,11 +2,15 @@ package com.clong.wuyouhelper.activity;
 
 import com.clong.wuyouhelper.R;
 import com.clong.wuyouhelper.constants.Constants;
+import com.clong.wuyouhelper.utils.StringUtil;
 
 import android.app.Activity;
+import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 /**
  * 手机防盗-设置向导
@@ -39,13 +43,31 @@ public class Safe_Setup_Activity extends Activity {
 	}
 
 	/**
-	 * 后退按钮,根据当前页面的不同变更视图
+	 * 手机按键上的后退
+	 */
+	@Override
+	public void onBackPressed() {
+		backAction();
+	}
+
+	/**
+	 * 布局上的后退按钮
 	 * 
 	 * @author: cl
 	 * @param v
 	 * @date: 2016-2-23-下午5:06:11
 	 */
 	public void back(View v) {
+		backAction();
+	}
+
+	/**
+	 * 后退动作,根据当前页面的不同变更视图
+	 * 
+	 * @author: cl
+	 * @date: 2016-3-2-下午9:34:09
+	 */
+	private void backAction() {
 		// 切换视图后设置参数需要重新获取一遍控件,因为此时旧的视图已被覆盖
 		if (currentView == R.layout.safe_setup_1) {// 第一步的后退
 			finish();
@@ -88,6 +110,15 @@ public class Safe_Setup_Activity extends Activity {
 		pass = et_pass.getText().toString();
 		pass_sure = et_pass_sure.getText().toString();
 
+		// 校验密码
+		if (TextUtils.isEmpty(pass) || TextUtils.isEmpty(pass_sure)) {
+			Toast.makeText(this, "密码不能为空", Toast.LENGTH_SHORT).show();
+			return;
+		} else if (!pass.equals(pass_sure)) {
+			Toast.makeText(this, "两次密码不一致", Toast.LENGTH_SHORT).show();
+			return;
+		}
+
 		// 切换视图
 		setContentView(R.layout.safe_setup_2);
 		currentView = R.layout.safe_setup_2;
@@ -111,6 +142,14 @@ public class Safe_Setup_Activity extends Activity {
 		phone = et_phone.getText().toString();
 		mail = et_mail.getText().toString();
 
+		if (!StringUtil.isPhoneNO(phone)) {
+			Toast.makeText(this, "请输入正确的手机号码", Toast.LENGTH_SHORT).show();
+			return;
+		} else if (!StringUtil.isMail(mail)) {
+			Toast.makeText(this, "请输入正确的邮箱地址", Toast.LENGTH_SHORT).show();
+			return;
+		}
+
 		setContentView(R.layout.safe_setup_3);
 		currentView = R.layout.safe_setup_3;
 	}
@@ -123,8 +162,10 @@ public class Safe_Setup_Activity extends Activity {
 	 * @date: 2016-3-2-下午4:33:50
 	 */
 	public void setupFinish(View v) {
-		getSharedPreferences("config", MODE_PRIVATE).edit()
-				.putString("safe_password", "123").commit();
+		Editor edit = getSharedPreferences("config", MODE_PRIVATE).edit();
+		edit.putString("safe_password", StringUtil.toMD5(pass + phone + mail))
+				.putString("safe_phone", phone).putString("safe_mail", mail)
+				.commit();
 		Constants.SAFE_PASS = true;
 		finish();
 	}

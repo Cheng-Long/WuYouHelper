@@ -11,7 +11,7 @@ import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
 
 /**
- * 发送短信,需要连接网络
+ * 发送短信工具类
  * 
  * @author: cl
  * @date: 2016-3-1-下午3:26:13
@@ -19,7 +19,7 @@ import org.apache.commons.httpclient.methods.PostMethod;
 public class MsgUtil {
 
 	/**
-	 * 发送短信
+	 * 发送短信,需要连接网络
 	 * 
 	 * @author: cl
 	 * @param phone

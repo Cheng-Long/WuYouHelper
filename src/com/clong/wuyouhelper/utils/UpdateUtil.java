@@ -25,7 +25,7 @@ import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
 /**
- * 更新工具类
+ * 更新应用工具类
  * 
  * @author: cl
  * @date: 2016-1-28-下午3:39:17
@@ -204,7 +204,8 @@ public class UpdateUtil {
 						}
 					});
 		} else {
-			Toast.makeText(UpdateUtil.context, "没有找到SD卡", Toast.LENGTH_SHORT).show();
+			Toast.makeText(UpdateUtil.context, "没有找到SD卡", Toast.LENGTH_SHORT)
+					.show();
 		}
 	}
 

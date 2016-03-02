@@ -16,14 +16,14 @@ import javax.mail.util.ByteArrayDataSource;
 import android.util.Log;
 
 /**
- * Android中应用JavaMail进行邮件发送
+ * 发送邮件工具类
  * 
  * @author: cl
  * @date: 2016-3-1-下午12:24:10
  */
 public class MailUtil {
 	/**
-	 * 邮件发送程序
+	 * Android中应用JavaMail进行邮件发送
 	 * 
 	 * @param to
 	 *            接受人
@@ -65,8 +65,8 @@ public class MailUtil {
 	 *            邮件内容
 	 * @throws Exception
 	 */
-	private static void SendEmail(String host, String port, String address, String from,
-			String password, String to, String subject,
+	private static void SendEmail(String host, String port, String address,
+			String from, String password, String to, String subject,
 			String content) throws Exception {
 		Multipart multiPart;
 		String finalString = "";
